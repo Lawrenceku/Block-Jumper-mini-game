@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+*{
+padding:0;
+margin:0;
+}
+body{
+animation:set 30s infinite ease;
+overflow-y:hidden;
+}
+@keyframes set{
+0%{    background:white;}
+50%{    background:#1b262c;}
+100%{    background:white;}
+}
+#div{
+position:relative;
+top:-5px;
+min-height:580px;
+min-width:400px;
+color:fuchsia;
+border:1px solid black;
+font-size:50px;
+border-top:10px solid blue;
+border-bottom:50px solid blue;
+}
+#character{
+width:30px;
+position:absolute;
+height:70px;
+background-color:red;
+position:relative;
+top:524.99px;
+}
+.animation{
+animation:jump 1s linear;
+}
+#block{
+width:25px;
+height:100px;
+background-color:olive;
+position:relative;
+top:426.89px;
+left:290px;
+animation:move 2s infinite linear ;
+}
+@keyframes move {
+0%{left:400px;}
+100%{left:-170px;}
+}
+@keyframes jump{
+0%{top:500px;     transform: scale(1.5, 0.5);}
+30%{top:400px;    transform: scale(1, 1);}
+70%{top:350px;     transform: scale(1, 1);}
+100%{top:500px;     transform: scale( 1.5,0.5); animation-timing-function:ease-in-out;}
+}
+</style>
+</head>
+<body id="body">
+<audio id="music" src="https://raw.githack.com/DonDejvo/helloworld/main/games/car-race/assets/checkerflag.ogg" loop></audio>
+<audio id="is" display="none"src="https://dm0qx8t0i9gc9.cloudfront.net/previews/audio/BsTwCwBHBjzwub4i4/video-game-vintage-jump-ascend_zkBS6F4_.mp3" ></audio>
+<div id="div" onclick="up()">
+<div id="character" ></div>
+<div id="block"></div>
+</div>
+<script type="text/javascript">
+var block = document.getElementById("block")
+var character = document.getElementById("character")
+var replay = document.getElementById("but")
+var aud = document.getElementById("is")
+var music=document.getElementById("music")
+function up(){
+music.play()
+aud.volume=0.4
+aud.play()
+var x = "#"+Math.ceil(Math.random()*999)
+if(character.style.background !="none"){
+character.style.background = x
+}
+if(character.classList !="animation"){
+  character.classList.add("animation")
+  }
+  setTimeout(function(){
+    character.classList.remove("animation")
+  },1000)
+} 
+///some///
+setInterval(function(){})
+//some.//
+///////////COLLISION//////////////
+var checkdead = setInterval(function(){
+var top = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+var blockleft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+if(blockleft<29 && blockleft> -30 && top>=425){
+block.style.animation="none"
+block.style.display="none"
+character.style.animation="none"
+character.style.background = "none"
+alert("GAME OVER__reload to restart👌👍")
+alert("DON'T FORGET TO LIKE AND UP VOTE😀")
+document.getELementById().style.background = "black"
+}
+},0.1)
+</script>
+</body>
+</html>
