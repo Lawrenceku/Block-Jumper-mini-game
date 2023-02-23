@@ -1,0 +1,172 @@
+*{
+padding:0;
+margin:0;
+user-select: none;
+overflow: hidden;
+}
+body{
+overflow-y:hidden;
+}
+
+.set{
+height: 100%;
+width: 100%;
+position: absolute;
+animation:set 100s infinite ease;
+opacity: 0.4;
+}
+
+.game_over{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    opacity: 0.5;
+    background-color: black;
+    flex-direction: column;
+}
+
+#text{
+font-size: 10vh;
+background: radial-gradient(darkblue,lightblue);
+-webkit-background-clip:text ;
+font-family: cursive;
+-webkit-text-fill-color: transparent;
+}
+#h_score{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    color: white;
+
+}
+.restart_btn{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+margin-top: 5%;
+margin-bottom: 5%;
+padding: 2%;
+background-color:cadetblue;
+border-radius: 10px;
+font-size: larger;
+}
+
+.restart_btn:hover{
+    background-color:greenyellow;
+    font-weight: bolder;
+}
+.restart_btn:click{
+    animation: bounce 0.5s ease-in-out;
+}
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-20px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+.score_count{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+color: white;
+position: absolute;
+top: 0;
+font-weight: bolder;
+z-index: 100;
+padding: 10px;
+}
+
+@keyframes set{
+0%{    background:white;}
+50%{    background:black;}
+60%{    background:black;}
+100%{    background:white;}
+}
+#div{
+position:absolute;
+display: flex;
+min-height:91vh;
+min-width:100%;
+background-image: url('/assets/sky_clouds_tileset_16x16.png');
+backdrop-filter: none;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover  ;
+align-items: flex-end;
+}
+
+.platform{
+position:fixed;
+bottom: 0;
+z-index: 10;
+min-height:10vh;
+width:100%; 
+background: #141711;
+box-sizing: border-box;
+border: 0;
+}
+
+#character{
+width:15%;
+position:relative;
+height:30vh;
+background-image: url('/assets/q8q8cmtvn3y71.gif');
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+position:relative;
+top: 6.9vh;
+margin: 0;
+padding: 0;
+}
+
+.animation{
+animation:jump 800ms ;
+}
+
+.die_animation{
+animation:smash 2s ease-out ;
+}
+
+@keyframes smash{
+    0%{
+        left:1% ;
+    }
+   100%{
+        display: none;
+        left:-70%;
+    }
+}
+
+@keyframes jump{
+    0%{
+        top: 6.9vh;
+    }
+    70%{
+        top: -10vh;
+    }
+    100%{
+       top: 6.9vh;
+    }
+}
+
+#block{
+width:10vh;
+height:10vh;
+background-color:#141711;
+position:relative;
+left:100%;
+animation:move 3s infinite linear ;
+}
+
+@keyframes move{
+    0%{
+        left:100%;
+    }
+
+    100%{
+        display: none;
+        left:-70%;
+    }
+}

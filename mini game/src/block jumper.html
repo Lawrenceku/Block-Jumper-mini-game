@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+ <audio id="music"  src="Oldschool Main.mp3"  autoplay loop></audio> 
+<audio id="is" display="none"src="/assets/jumppp22.ogg" ></audio>
+<div id="div" onclick="up()">
+    <p class="score_count">SCORE: 0</p>
+    <div class="game_over"><p id="text">Game Over</p><button class="restart_btn" onclick="restart()">Restart</button><p id="h_score">SCORE: 0</p></div>
+    <div class="set"></div>
+        <div id="character" ></div>
+        <div id="block"></div>
+    <div class="platform"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
